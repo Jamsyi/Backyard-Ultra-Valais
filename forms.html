@@ -23,39 +23,120 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/forms_style.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script>
+      function openPopup() {
+        // Dimensions of the popup
+        const popupWidth = 800;
+        const popupHeight = 800;
+
+        // Calculate the center position
+        const screenLeft = window.screenLeft || window.screenX;
+        const screenTop = window.screenTop || window.screenY;
+        const width = window.innerWidth || document.documentElement.clientWidth;
+        const height = window.innerHeight || document.documentElement.clientHeight;
+
+        const left = screenLeft + (width - popupWidth) / 2;
+        const top = screenTop + (height - popupHeight) / 2;
+        // Open a new window (popup) with Google.com
+        window.open(
+        'https://go.twint.ch/1/e/tw?tw=acq.JbpqFfTZQl625VHDlSx7BQdO32SfcBhUQsKtUpzl1SasDiOrmg7nrTbZ0O68Zjka.', // URL to open
+        'Twint',           // Name of the popup window
+        `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=yes,scrollbars=yes`
+      );
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   </head>
   <body>
-    <!--Navbar-->
-    <nav class="navbar">
+    <!--Forms-->
+    <section class="forms">
       <div class="container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="./images/logo.png" alt="logo" />
-          </a>
+        <div class="form-grid">
+          <div>
+            <div class="logo">
+              <a href="index.html">
+                <img src="./images/logo.png" alt="logo" />
+              </a>
+            </div>
+            <form id="sendMessageForm">
+              <div class="input-box">
+                <label for="fname"></label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Prénom"
+                  required
+                />
+              </div>
+              <div class="input-box">
+                <label for="lname"></label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  placeholder="Nom"
+                  required
+                />
+              </div>
+    
+              <div class="input-box">
+                <label for="email"></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+                />
+              </div>
+    
+              <div class="date">
+                <label for="bdate">Date de naissance</label>
+                <br />
+                <input type="date" id="bdate" name="bdate" required />
+              </div>
+    
+              <div class="select">
+                <label for="gender"></label>
+                <select name="gender" id="gender" required>
+                  <option value="male">Homme</option>
+                  <option value="female">Femme</option>
+                  <option value="other">Non spécifié</option>
+                </select>
+              </div>
+              
+          </div>
+          <div>
+            <div class="bank">
+              Payment e-banking
+              <div class="info"><br>
+                Lycée-Collège de la Planta
+                <br>
+                UBS CH45 0000 0000 0000 0000
+              </div>
+              
+            </div>
+            <div class="twint">
+              Payment Twint
+              <br>
+              <button class="twint-btn" type="button" onclick="openPopup()">Payer avec TWINT</button>
+            </div>
+            
+          </div>
         </div>
-
-        <div class="main-menu">
-          <ul>
-            <li>
-              <a href="index.html">Accueil</a>
-            </li>
-            <li>
-              <a href="infos.html">Informations</a>
-            </li>
-            <li>
-              <a href="about.html">Notre Equipe</a>
-            </li>
-            <li>
-              <b class="btn btn-light" href="forms.html">
-                <i class="fa-solid fa-user-plus"></i> Inscription
-              </b>
-            </li>
-          </ul>
+          
+        <div class="continuer">
+          <br>
+          <div class="note">Votre inscription est valable uniquement si le paiement a été effectué.</div>
+          <button type="submit" class="button">Continuer</button>
         </div>
+        </form>
       </div>
-    </nav>
+    </section>
 
     <!--Footer-->
     <footer class="footer bg-black">
@@ -96,7 +177,43 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.getElementById('sendMessageForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            sendMail();
+        });
 
-    <script src="js/main.js"></script>
+      function getTimeStamp() {
+          return new Date().toLocaleString(); // Format: "MM/DD/YYYY, HH:MM:SS AM/PM"
+      }
+
+
+      function sendMail(){
+        (function(){
+          emailjs.init("TOKEr182Q7mfy9quA");
+        })();
+
+        var params = {
+          fname: document.querySelector("#fname").value,
+          lname: document.querySelector("#lname").value,
+          email: document.querySelector("#email").value,
+          bdate: document.querySelector("#bdate").value,
+          gender: document.querySelector("#gender").value,
+          time: getTimeStamp(),
+        };
+        let bdate = document.querySelector("#bdate").value;
+        console.log("Birth Date:", bdate);
+
+        var serviceID = "service_twn7q2k";
+        var templateID = "template_g04qgwg";
+
+        emailjs.send(serviceID, templateID, params)
+        .then( res => {
+          window.location.href = "approved.html"; // Redirect immediately })
+        })
+        .catch();
+      }
+    </script>
+    <script src="../js/main.js"></script>
   </body>
 </html>

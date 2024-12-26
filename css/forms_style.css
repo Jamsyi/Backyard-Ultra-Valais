@@ -1,0 +1,374 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #cb1818;
+  --light-color: #f4f4f6;
+  --dark-color: #111;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Forms */
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 180px;
+  justify-content: center;
+  align-items: center;
+}
+
+.forms {
+  background: url("../images/ardon.jpg") no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.forms .container .logo {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.forms .container {
+  width: 1000px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.forms .container .input-box {
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.input-box input::placeholder {
+  color: #fff;
+}
+
+.forms .container .date {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px 0;
+}
+
+.date input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  padding: 20px 45px 20px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.date input::-webkit-calendar-picker-indicator {
+  filter: invert(100%) sepia(100%) hue-rotate(200deg);
+  position: absolute;
+  right: 680px;
+}
+
+.forms .container .select {
+  width: 100%;
+  height: 50px;
+  margin: 43px 0;
+}
+
+.select select {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  padding-left: 20px;
+  appearance: none;
+}
+
+.select::after {
+  content: "▼";
+  position: absolute;
+  right: 685px;
+  bottom: 103px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: white;
+  font-size: 12px;
+}
+
+.select select:hover {
+  background-color: #222;
+}
+
+.select select:focus {
+  background-color: #222;
+}
+
+.forms .container .button {
+  width: 240px;
+  height: 50px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.bank {
+  font-size: 20px;
+}
+
+.bank .info {
+  margin: 10px;
+  margin-bottom: 40px;
+  font-size: 16px;
+  color: #e7e7e7;
+}
+
+.twint {
+  font-size: 20px;
+}
+.forms .container .twint .twint-btn {
+  margin: 10px;
+  width: 80%;
+  height: 50px;
+  background: url("../images/twintbtn.jpg") no-repeat;
+  background-size: contain;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  padding: 0px 0px 0px 30px;
+  margin-bottom: 30px;
+}
+
+.continuer .note {
+  position: absolute;
+  bottom: 23px;
+  right: 270px;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+  padding: 40px 0;
+}
+
+.footer a {
+  font-size: 25px;
+  margin-right: 20px;
+  margin-top: 10x;
+  color: #f4f4f6;
+  position: relative;
+  display: inline-block;
+}
+
+.footer .container .footer-grid i:hover {
+  transform: translateY(-2px);
+  color: var(--primary-color);
+}
+
+.footer d {
+  font-size: 13px;
+  color: #b1b1b1;
+  white-space: nowrap;
+}
+
+.footer .contact {
+  font-size: 13px;
+  color: #fff;
+}
+
+.footer i {
+  margin-right: 5px;
+}
+
+.footer .social {
+  font-size: 13px;
+  color: #e7e7e7;
+  white-space: nowrap;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 1fr;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Utility Classes */
+.container-sc {
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.container-sm {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+/* Background */
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-light {
+  background: var(--light-color);
+  color: #333;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.bg-black {
+  background: #000;
+  color: #fff;
+}
+
+/* Text Classes */
+.text-xxl {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 40px 0 20px;
+}
+
+.text-xl {
+  font-size: 2.2rem;
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 40px 0 20px;
+}
+
+.text-lg {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 30px 0 20px;
+}
+
+.text-md {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 20px 0 10px;
+}
+
+.text-sm {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 10px 0 5px;
+}
+
+.text-center {
+  text-align: center;
+}
